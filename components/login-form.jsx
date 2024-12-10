@@ -4,10 +4,10 @@ import { signIn } from 'next-auth/react'
 import { toast } from 'sonner'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Button } from '@components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@components/ui/card'
+import { Input } from '@components/ui/input'
+import { Label } from '@components/ui/label'
 
 export function LoginForm() {
   const [email, setEmail] = useState('')
@@ -43,7 +43,7 @@ export function LoginForm() {
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder='shopkeeper@marketnest.com'
+              placeholder='admin@marketnest.com'
               required
             />
           </div>

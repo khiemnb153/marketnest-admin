@@ -1,6 +1,7 @@
 'use client'
 
 import { signOut, useSession } from 'next-auth/react'
+import { getAbbreviationName } from '@lib/utils'
 
 import { Store, ChevronsUpDown, LogOut } from 'lucide-react'
 
@@ -17,14 +18,6 @@ import {
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from '@components/ui/sidebar'
 import { Button } from './ui/button'
 import Link from 'next/link'
-
-const getAbbreviationName = (name) => {
-  return name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-}
 
 export function NavUser() {
   const { isMobile } = useSidebar()
@@ -75,18 +68,7 @@ export function NavUser() {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem
-                asChild
-                className='cursor-pointer'
-              >
-                <Link href={'/profile'}>
-                  <Store />
-                  Hồ sơ cửa hàng
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
+
             <DropdownMenuItem
               onClick={() => signOut({ callbackUrl: '/logout' })}
               className='cursor-pointer'
