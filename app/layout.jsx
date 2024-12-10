@@ -5,7 +5,7 @@ import { cn } from '@lib/utils'
 import { getServerSession } from 'next-auth'
 import authOptions from '@lib/auth-options'
 
-import { Toaster } from '@/components/ui/sonner'
+import { Toaster } from '@components/ui/sonner'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import AuthProvider from '@components/auth-provider'
 
@@ -16,7 +16,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 })
 
 export const metadata = {
-  title: 'Market Nest | Shopkeeper',
+  title: 'Admin | Market Nest',
   description: 'A digital marketplace for everything',
   icons: {
     icon: '/assets/logo.svg',
