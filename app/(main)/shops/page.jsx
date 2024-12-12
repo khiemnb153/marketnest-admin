@@ -24,9 +24,7 @@ const ShopsPage = ({ searchParams }) => {
   const [pageSize, setPageSize] = useState(parseInt(query.pageSize) || 10)
   const [searchName, setSearchName] = useState(query.searchName || '')
 
-  const { data, error, isLoading } = useFetch(
-    buildUrl('/shops', { pageIndex: 1, pageSize, searchName: query.searchName || '' })
-  )
+  const { data, error, isLoading } = useFetch(buildUrl('/shops', { pageIndex, pageSize, searchName: query.searchName || '' }))
 
   const renderShopTable = () => {
     if (isLoading) {
