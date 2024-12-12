@@ -2,10 +2,9 @@ import { getAbbreviationName } from '@lib/utils'
 import { toast } from 'sonner'
 import { mutate, useSWRConfig } from 'swr'
 
-import { Ban, CircleCheck } from 'lucide-react'
+import { Ban, RotateCcw } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@components/ui/avatar'
-import { Button } from '@components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@components/ui/card'
 import { Skeleton } from '@components/ui/skeleton'
 import ConfirmationButton from '@components/confirmation-button'
@@ -72,7 +71,7 @@ export default function UserCard({ user }) {
           >
             {user.status == 'DISABLED' ? (
               <>
-                <CircleCheck /> Mở khóa
+                <RotateCcw /> Mở khóa
               </>
             ) : (
               <>

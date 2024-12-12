@@ -82,7 +82,7 @@ const UsersPage = ({ searchParams }) => {
             value={pageSize}
             onValueChange={(value) => {
               setPageSize(value)
-              router.push(buildUrl('/users', { pageIndex: 1, pageSize: value, searchName }))
+              router.push(buildUrl('/users', { pageIndex, pageSize: value, searchName }))
             }}
           >
             <SelectTrigger>
