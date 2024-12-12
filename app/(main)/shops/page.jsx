@@ -68,7 +68,7 @@ const ShopsPage = ({ searchParams }) => {
               className='px-3'
               asChild
             >
-              <Link href={buildUrl('/shops', { pageIndex, pageSize, searchName })}>
+              <Link href={buildUrl('/shops', { pageIndex: 1, pageSize, searchName })}>
                 <Search />
               </Link>
             </Button>

@@ -70,7 +70,7 @@ const UsersPage = ({ searchParams }) => {
               className='px-3'
               asChild
             >
-              <Link href={buildUrl('/users', { pageIndex, pageSize, searchName })}>
+              <Link href={buildUrl('/users', { pageIndex: 1, pageSize, searchName })}>
                 <Search />
               </Link>
             </Button>
