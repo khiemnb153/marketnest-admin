@@ -1,4 +1,4 @@
-import { SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarTrigger } from '@components/ui/sidebar'
 import { Separator } from '@components/ui/separator'
 import {
   Breadcrumb,
@@ -7,7 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
+} from '@components/ui/breadcrumb'
 import { ThemeToggle } from './theme-toggle'
 import { Fragment } from 'react'
 

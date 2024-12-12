@@ -1,10 +1,10 @@
 'use client'
 
 import * as React from 'react'
-import { House, MessageCircleMore, Package, ShoppingCart, TicketPercent } from 'lucide-react'
+import { House, MessageCircleMore, Package, ShoppingCart, TicketPercent, Users, Store } from 'lucide-react'
 
 import Link from 'next/link'
-import { NavUser } from '@/components/nav-user'
+import { NavUser } from '@components/nav-user'
 import {
   Sidebar,
   SidebarContent,
@@ -15,10 +15,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from '@/components/ui/sidebar'
+} from '@components/ui/sidebar'
 
 const navItems = [
   { name: 'Trang chủ', url: '/', icon: House },
+  { name: 'Người dùng', url: '/users', icon: Users },
+  { name: 'Gian hàng', url: '/shops', icon: Store },
   { name: 'Sản phẩm', url: '/products', icon: Package },
   { name: 'Đơn hàng', url: '/orders', icon: ShoppingCart },
   { name: 'Ưu đãi', url: '/vouchers', icon: TicketPercent },

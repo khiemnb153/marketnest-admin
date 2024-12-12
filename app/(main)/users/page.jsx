@@ -24,9 +24,7 @@ const UsersPage = ({ searchParams }) => {
   const [pageSize, setPageSize] = useState(parseInt(query.pageSize) || 10)
   const [searchName, setSearchName] = useState(query.searchName || '')
 
-  const { data, error, isLoading } = useFetch(
-    buildUrl('/users', { pageIndex: 1, pageSize, searchName: query.searchName || '' })
-  )
+  const { data, error, isLoading } = useFetch(buildUrl('/users', { pageIndex, pageSize, searchName: query.searchName || '' }))
 
   const renderUserTable = () => {
     if (isLoading) {

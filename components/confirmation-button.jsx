@@ -1,54 +1,47 @@
 'use client'
 
-import { Trash2 } from 'lucide-react'
-
 import { Button } from '@components/ui/button'
-
 import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogClose,
-} from '@components/ui/dialog'
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@components/ui/alert-dialog'
 
 const ConfirmationButton = ({ title, prompt, onConfirm, children, ...btnProps }) => {
-  // TODO: Use Alert Dialog instead
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button {...btnProps}>{children}</Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-        </DialogHeader>
-        <div className='py-4'>
-          <p>{prompt}</p>
-        </div>
-        <DialogFooter>
-          <DialogClose asChild>
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button
+          variant='outline'
+          {...btnProps}
+        >
+          {children}
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>{title}</AlertDialogTitle>
+          <AlertDialogDescription>{prompt}</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Hủy</AlertDialogCancel>
+          <AlertDialogAction asChild>
             <Button
-              type='submit'
               variant='destructive'
               onClick={onConfirm}
             >
               Xác nhận
             </Button>
-          </DialogClose>
-          <DialogClose asChild>
-            <Button
-              type='button'
-              variant='secondary'
-            >
-              Hủy
-            </Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   )
 }
 
