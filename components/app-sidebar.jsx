@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { House, MessageCircleMore, Package, ShoppingCart, TicketPercent, Users, Store } from 'lucide-react'
+import { House, MessageSquareWarning, Package, TicketPercent, Users, Store } from 'lucide-react'
 
 import Link from 'next/link'
 import { NavUser } from '@components/nav-user'
@@ -22,9 +22,8 @@ const navItems = [
   { name: 'Người dùng', url: '/users', icon: Users },
   { name: 'Gian hàng', url: '/shops', icon: Store },
   { name: 'Sản phẩm', url: '/products', icon: Package },
-  { name: 'Đơn hàng', url: '/orders', icon: ShoppingCart },
   { name: 'Ưu đãi', url: '/vouchers', icon: TicketPercent },
-  { name: 'Chat', url: '/chat', icon: MessageCircleMore },
+  { name: 'Báo cáo', url: '/reports', icon: MessageSquareWarning },
 ]
 
 export function AppSidebar({ ...props }) {
