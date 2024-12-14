@@ -14,6 +14,7 @@ import ConfirmationButton from '@components/confirmation-button'
 import Image from 'next/image'
 
 import ProductStatusBadge from '../product-status-badge'
+import ProductRatingList from './product-rating-list'
 
 const ProductCard = ({ product }) => {
   const { accessToken } = useSWRConfig()
@@ -88,7 +89,7 @@ const ProductCard = ({ product }) => {
                     />
                   ))}
                 </div>
-                <span className='ml-2 text-sm text-muted-foreground'>({product.rate})</span>
+                <span className='ml-2 text-sm text-muted-foreground'>({product.rate.toFixed(1)})</span>
               </div>
               <p className='text-sm text-muted-foreground'>Có sẵn: {product.stock}</p>
               <ProductStatusBadge status={product.status} />
@@ -118,14 +119,7 @@ const ProductCard = ({ product }) => {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Đánh giá</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>{product.description}</p>
-        </CardContent>
-      </Card>
+      <ProductRatingList productId={product.id} />
     </>
   )
 }

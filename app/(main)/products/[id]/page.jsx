@@ -31,8 +31,8 @@ const ProductPage = ({ params }) => {
 
   return (
     <AppWrapper
-      title='Chi tiết gian hàng'
-      routeTree={[{ url: '/products', name: 'Quản lý gian hàng' }]}
+      title='Chi tiết sản phẩm'
+      routeTree={[{ url: '/products', name: 'Quản lý sản phẩm' }]}
       className='flex flex-col gap-4'
     >
       {renderProduct()}

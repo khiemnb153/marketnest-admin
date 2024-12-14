@@ -53,7 +53,7 @@ const ProductsPage = ({ searchParams }) => {
 
   return (
     <AppWrapper
-      title='Quản lý gian hàng'
+      title='Quản lý sản phẩm'
       className='flex flex-col gap-4'
     >
       <div className='flex-row-gap-4 flex justify-between'>
