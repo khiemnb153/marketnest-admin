@@ -4,6 +4,7 @@ import currency from '@lib/currency'
 import moment from 'moment/moment'
 import { mutate, useSWRConfig } from 'swr'
 import { toast } from 'sonner'
+import { useRouter } from '@node_modules/next/navigation'
 
 import { Calendar, Percent, Ticket, Play, Ban, Pencil, Trash2 } from 'lucide-react'
 
@@ -16,6 +17,7 @@ import Link from '@node_modules/next/link'
 import VoucherStatusBadge from '../voucher-status-badge'
 
 const VoucherCard = ({ voucher }) => {
+  const router = useRouter()
   const { accessToken } = useSWRConfig()
 
   console.log(voucher)
@@ -39,6 +41,26 @@ const VoucherCard = ({ voucher }) => {
 
     toast.success(`Cập nhật trạng thái khuyến mãi thành công.`)
     mutate(`/discounts/${voucher.id}`)
+  }
+
+  const handleDelete = async () => {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_BASE + `/discounts/${voucher.id}/permanently`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+
+    if (!res.ok) {
+      toast.error(`Xóa khuyến mãi khuyến mãi thất bại. Code: ${res.status}`)
+      console.log(await res.json())
+
+      return
+    }
+
+    toast.success(`Xóa khuyến mãi khuyến mãi thành công.`)
+    router.push('/vouchers')
   }
 
   return (
@@ -89,12 +111,17 @@ const VoucherCard = ({ voucher }) => {
               <Pencil />
             </Link>
           </Button>
-          <Button
+          <ConfirmationButton
             size='icon'
             variant='destructive'
+            title='Xác nhận'
+            prompt={`Bạn có chắc chắn muốn XÓA khuyến mãi này không?`}
+            onConfirm={() => {
+              handleDelete()
+            }}
           >
             <Trash2 />
-          </Button>
+          </ConfirmationButton>
           <ConfirmationButton
             variant={voucher.status.toUpperCase() == 'INACTIVE' ? 'default' : 'destructive'}
             title='Xác nhận'
