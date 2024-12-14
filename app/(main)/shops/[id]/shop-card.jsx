@@ -37,7 +37,7 @@ export default function ShopCard({ shop }) {
   }
 
   return (
-    <Card className='mx-auto w-full max-w-3xl'>
+    <Card className='mx-auto w-full'>
       <CardHeader>
         <div className='flex items-center justify-between'>
           <CardTitle className='text-2xl'>{shop.name}</CardTitle>
@@ -140,7 +140,7 @@ export default function ShopCard({ shop }) {
 
 export function ShopCardSkeleton() {
   return (
-    <Card className='mx-auto w-full max-w-3xl'>
+    <Card className='mx-auto w-full'>
       <CardHeader>
         <div className='flex items-center justify-between'>
           <Skeleton className='h-8 w-64' />

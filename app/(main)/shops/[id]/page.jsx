@@ -5,6 +5,7 @@ import useFetch from '@hooks/use-fetch'
 
 import AppWrapper from '@components/app-wrapper'
 import ShopCard, { ShopCardSkeleton } from './shop-card'
+import ShopProductTable from './shop-product-table'
 
 const ShopPage = ({ params }) => {
   const { id } = use(params)
@@ -26,7 +27,12 @@ const ShopPage = ({ params }) => {
       )
     }
 
-    return <ShopCard shop={data.shop} />
+    return (
+      <>
+        <ShopCard shop={data.shop} />
+        <ShopProductTable shopId={data.shop.id} />
+      </>
+    )
   }
 
   return (
