@@ -22,7 +22,7 @@ const data = [
 const chartConfig = {
   total: {
     label: 'Doanh số',
-    color: 'hsl(var(--chart-1))',
+    color: 'hsl(var(--primary))',
   },
 }
 

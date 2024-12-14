@@ -1,30 +1,24 @@
 # TODO
 
-## Quản lý người dùng
+## [x] Quản lý người dùng
 
 - [x] Xem chi tiết khi click vào một row trong table
 - [x] Confirmation Button for Actions
 
-## Quản lý cửa hàng
+## [ ] Quản lý cửa hàng
 
 - [x] Xem chi tiết khi click vào một row trong table
 - [x] Confirmation Button for Actions
+- [ ] Sản phẩm của cửa hàng
 
-## Quản lý sản phẩm
+## [ ] Quản lý sản phẩm
 
-## Quản lý khuyến mãi
+- [ ] Hiển thị đánh giá
 
-## Quản lý hoàn trả
+## [x] Quản lý khuyến mãi
 
-## Quản lý báo cáo
+## [ ] Quản lý báo cáo
 
-## Trang chủ
+- [ ]
 
-- [ ] Vẽ biểu đồ với mock data
-
-Table: Sửa chi tiết ở nút ... thành click vô từng hàng
-
-- Sửa đơn hàng thành Hoàn trả
-- Chat thành Report
-- Thêm, xóa, sửa Ưu đãi
-- Trang chủ (biểu đồ)
+## [ ] Trang chủ

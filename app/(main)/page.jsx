@@ -33,7 +33,7 @@ export default function Home() {
       </Card>
       <Card>
         <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-          <CardTitle className='text-sm font-medium'>Đã bán</CardTitle>
+          <CardTitle className='text-sm font-medium'>Doanh số</CardTitle>
         </CardHeader>
         <CardContent>
           <div className='text-2xl font-bold'>+12,234</div>
