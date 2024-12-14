@@ -4,12 +4,12 @@ import { useState } from 'react'
 import { buildUrl } from '@lib/utils'
 import useFetch from '@hooks/use-fetch'
 import { useRouter } from 'next/navigation'
+import { getAbbreviationName } from '@lib/utils'
 
 import { Search, Star, StarHalf } from 'lucide-react'
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue, SelectLabel } from '@components/ui/select'
-import { Button } from '@components/ui/button'
-import { Input } from '@components/ui/input'
+import { Avatar, AvatarImage, AvatarFallback } from '@components/ui/avatar'
 import { Card, CardContent, CardHeader, CardTitle } from '@components/ui/card'
 import {
   Pagination,
@@ -56,6 +56,21 @@ const ProductRatingList = ({ productId }) => {
           return (
             <Card key={rating.id}>
               <CardHeader>
+                <div className='flex flex-row items-center gap-2'>
+                  <Avatar className='h-8 w-8 rounded-lg'>
+                    <AvatarImage
+                      src={rating.user.avatar}
+                      alt={rating.user.username}
+                      className='object-cover'
+                    />
+                    <AvatarFallback className='rounded-lg'>
+                      {getAbbreviationName(rating.user.username || 'User')}
+                    </AvatarFallback>
+                  </Avatar>
+                  {rating.user.username}
+                </div>
+              </CardHeader>
+              <CardContent>
                 <div className='flex items-center'>
                   {[...Array(fullStars)].map((_, i) => (
                     <Star
@@ -72,8 +87,6 @@ const ProductRatingList = ({ productId }) => {
                   ))}
                   <span className='ml-2 text-sm text-gray-600'>{rating.value.toFixed(1)}</span>
                 </div>
-              </CardHeader>
-              <CardContent>
                 <p>{rating.comment}</p>
               </CardContent>
             </Card>

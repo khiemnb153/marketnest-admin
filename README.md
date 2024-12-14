@@ -13,11 +13,11 @@
 
 ## Quản lý sản phẩm
 
-- [ ] Hiển thị đánh giá (thông tin người đánh giá)
+- [x] Hiển thị đánh giá (thông tin người đánh giá)
 
 ## Quản lý khuyến mãi
 
-- [ ] Xóa
+- [x] Xóa
 
 ## Quản lý báo cáo
 
