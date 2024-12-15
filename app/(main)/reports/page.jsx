@@ -20,11 +20,17 @@ const UsersPage = ({ searchParams }) => {
   const pageIndex = parseInt(query.pageIndex) || 1
   const [pageSize, setPageSize] = useState(parseInt(query.pageSize) || 10)
 
-  const { data, error, isLoading } = useFetch(buildUrl('/reports/shops', { pageIndex, pageSize, ...(shopId && { shopId }) }))
+  const dataKey = buildUrl('/reports/shops', { pageIndex, pageSize, ...(shopId && { shopId }) })
+  const { data, error, isLoading } = useFetch(dataKey)
 
   const renderUserTable = () => {
     if (isLoading) {
-      return <ReportGridSkeleton pageSize={pageSize} />
+      return (
+        <ReportGridSkeleton
+          pageSize={pageSize}
+          dataKey={dataKey}
+        />
+      )
     }
 
     if (error) {

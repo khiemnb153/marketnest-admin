@@ -3,7 +3,7 @@ import moment from 'moment/moment'
 import { mutate, useSWRConfig } from 'swr'
 import { toast } from 'sonner'
 
-import { AlertCircle } from 'lucide-react'
+import { AlertCircle, CheckCircle } from 'lucide-react'
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@components/ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@components/ui/avatar'
@@ -12,25 +12,25 @@ import { Button } from '@components/ui/button'
 import { Skeleton } from '@components/ui/skeleton'
 import Link from 'next/link'
 
-const ReportGird = ({ reports }) => {
+const ReportGird = ({ reports, dataKey }) => {
   const { accessToken } = useSWRConfig()
 
   const handleMarkAsRead = async (reportId) => {
-    // const res = await fetch(process.env.NEXT_PUBLIC_API_BASE + `/products/${product.id}/admin`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${accessToken}`,
-    //   },
-    //   body: JSON.stringify({ status: 'Admin_Disabled' }),
-    // })
-    // if (!res.ok) {
-    //   toast.error(`Gỡ sản phẩm thất bại. Code: ${res.status}`)
-    //   console.log(await res.json())
-    //   return
-    // }
-    // toast.success(`Gỡ sản phẩm thành công.`)
-    // mutate(`/products/${product.id}`)
+    const res = await fetch(process.env.NEXT_PUBLIC_API_BASE + '/reports/app/status', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ reportIds: [reportId] }),
+    })
+    if (!res.ok) {
+      toast.error(`Đánh dấu đã đọc báo cáo thất bại. Code: ${res.status}`)
+      console.log(await res.json())
+      return
+    }
+    toast.success(`Đánh dấu đã đọc báo cáo thành công.`)
+    mutate(dataKey)
   }
 
   return (
