@@ -25,7 +25,7 @@ const VouchersPage = ({ searchParams }) => {
   const [searchName, setSearchName] = useState(query.searchName || '')
 
   const { data, error, isLoading } = useFetch(
-    buildUrl('/discounts', { pageIndex, pageSize, searchName: query.searchName || '' })
+    buildUrl('/discounts', { pageIndex, pageSize, searchName: query.searchName || '', owner: 'admin' })
   )
 
   console.log(data)
@@ -48,7 +48,7 @@ const VouchersPage = ({ searchParams }) => {
     return (
       <VoucherTable
         vouchers={data.discounts}
-        searchParams={{ pageIndex, pageSize, searchName }}
+        searchParams={{ pageIndex, pageSize, searchName, owner: 'admin' }}
       />
     )
   }
@@ -72,7 +72,7 @@ const VouchersPage = ({ searchParams }) => {
             value={pageSize}
             onValueChange={(value) => {
               setPageSize(value)
-              router.push(buildUrl('/vouchers', { pageIndex: 1, pageSize: value, searchName }))
+              router.push(buildUrl('/vouchers', { pageIndex: 1, pageSize: value, searchName, owner: 'admin' }))
             }}
           >
             <SelectTrigger>
@@ -95,7 +95,7 @@ const VouchersPage = ({ searchParams }) => {
       {!!data && (
         <CommonPagination
           route={'/vouchers'}
-          searchParams={{ pageIndex, pageSize, searchName }}
+          searchParams={{ pageIndex, pageSize, searchName, owner: 'admin' }}
           totalPages={data.totalPages}
         />
       )}
