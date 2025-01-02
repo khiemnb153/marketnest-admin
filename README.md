@@ -1,32 +1,13 @@
-# TODO
+# MARKETNEST FOR ADMIN
 
-## Quản lý người dùng
+## Installation
 
-- [x] Xem chi tiết khi click vào một row trong table
-- [x] Confirmation Button for Actions
+### Prerequisite
 
-## Quản lý cửa hàng
+- NodeJS
 
-- [x] Xem chi tiết khi click vào một row trong table
-- [x] Confirmation Button for Actions
-- [x] Sản phẩm của cửa hàng
+### Step-by-Step
 
-## Quản lý sản phẩm
-
-- [x] Hiển thị đánh giá (thông tin người đánh giá)
-
-## Quản lý khuyến mãi
-
-- [x] Xóa
-
-## Quản lý báo cáo
-
-- [ ] Đánh dấu là đã đọc
-
-## Trang chủ
-
-## Filter cho table
-
-- [ ] Product
-- [ ] Discount
-- [ ]
+- Run `npm install` to install neccessary package.
+- Run `npm run dev` to start developing.
+- Run `npm run build` and `npm run start` to start production.
